@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 log = "0.4"
 regex = "1.10"
+yaml-rust2 = "0.8"
+hashlink = "0.8"
