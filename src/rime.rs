@@ -10,3 +10,5 @@ pub(crate) mod language;
 pub(crate) mod registry;
 pub(crate) mod resource;
 pub(crate) mod service;
+
+pub const RIME_VERSION: &str = "1.11.2";
