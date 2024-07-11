@@ -1,10 +1,12 @@
 pub(crate) mod algo;
 pub(crate) mod candidate;
 pub(crate) mod common;
+pub(crate) mod component;
 pub(crate) mod config;
 pub(crate) mod dict;
 pub(crate) mod key_event;
 pub(crate) mod key_table;
 pub(crate) mod language;
+pub(crate) mod registry;
 pub(crate) mod resource;
 pub(crate) mod service;
