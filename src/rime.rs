@@ -7,3 +7,4 @@ pub(crate) mod key_event;
 pub(crate) mod key_table;
 pub(crate) mod language;
 pub(crate) mod resource;
+pub(crate) mod service;
