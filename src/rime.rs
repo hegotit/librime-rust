@@ -8,8 +8,10 @@ pub(crate) mod filter;
 pub(crate) mod key_event;
 pub(crate) mod key_table;
 pub(crate) mod language;
+pub(crate) mod menu;
 pub(crate) mod registry;
 pub(crate) mod resource;
 pub(crate) mod service;
+pub(crate) mod translation;
 
 pub const RIME_VERSION: &str = "1.11.2";
