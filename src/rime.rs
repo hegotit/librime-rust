@@ -11,6 +11,7 @@ pub(crate) mod language;
 pub(crate) mod menu;
 pub(crate) mod registry;
 pub(crate) mod resource;
+pub(crate) mod segmentation;
 pub(crate) mod service;
 pub(crate) mod translation;
 
