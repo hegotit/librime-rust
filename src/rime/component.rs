@@ -9,3 +9,7 @@ impl Clone for Box<dyn ComponentBase> {
         self.clone_box()
     }
 }
+
+trait Component: ComponentBase {
+    fn create(&self, name: &str);
+}
