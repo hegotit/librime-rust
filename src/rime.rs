@@ -5,6 +5,7 @@ pub(crate) mod common;
 pub(crate) mod component;
 pub(crate) mod composition;
 pub(crate) mod config;
+pub(crate) mod context;
 pub(crate) mod dict;
 pub(crate) mod filter;
 pub(crate) mod key_event;

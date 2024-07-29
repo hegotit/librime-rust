@@ -40,4 +40,8 @@ impl Registry {
         static INSTANCE: LazyLock<Arc<Registry>> = LazyLock::new(|| Arc::new(Registry::new()));
         INSTANCE.clone()
     }
+
+    fn require(name: &str) -> Option<Box<dyn ComponentBase>> {
+        Registry::instance().find(name)
+    }
 }
