@@ -1,11 +1,17 @@
-pub(crate) trait ComponentBase: Send {
-    fn create(&self, name: &str);
+use std::any::Any;
 
-    fn clone_box(&self) -> Box<dyn ComponentBase>;
+use crate::rime::deployer::Deployer;
+
+pub(crate) trait ComponentBase: Any + Send + Sync {
+    fn as_any(&self) -> &dyn Any;
 }
 
-impl Clone for Box<dyn ComponentBase> {
-    fn clone(&self) -> Box<dyn ComponentBase> {
-        self.clone_box()
+pub(crate) trait DeploymentTask: ComponentBase {
+    fn run(&self, deployer: &Deployer) -> bool;
+}
+
+impl<T: 'static + DeploymentTask> ComponentBase for T {
+    fn as_any(&self) -> &dyn Any {
+        self
     }
 }
