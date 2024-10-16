@@ -4,26 +4,32 @@ use std::io::{Error, ErrorKind, Result};
 
 use crate::rime::common::PathExt;
 
-pub(crate) struct MappedFile {
+pub struct MappedFile {
+    file_path: PathExt,
     file: File,
     mmap: Option<MmapMut>,
     size: usize,
 }
 
 impl MappedFile {
-    pub(crate) fn new(file_path: &PathExt) -> Result<Self> {
+    pub(crate) fn new(file_path: PathExt) -> Result<Self> {
         let file = File::options()
             .read(true)
             .write(true)
             .create(true)
-            .open(file_path)?;
+            .open(&file_path)?;
 
         let mmap = unsafe { MmapOptions::new().map_mut(&file)? };
         Ok(Self {
+            file_path,
             file,
             mmap: Some(mmap),
             size: 0,
         })
+    }
+
+    pub(crate) fn file_path(&self) -> &PathExt {
+        &self.file_path
     }
 
     fn size(&self) -> usize {
@@ -58,7 +64,7 @@ impl MappedFile {
 fn test() -> Result<()> {
     let file_path = PathExt::new("example.txt");
     // 创建一个映射文件
-    let mut mapped_file = MappedFile::new(&file_path)?;
+    let mut mapped_file = MappedFile::new(file_path)?;
 
     // 向文件中写入数据
     let data = b"Hello, Rust!";
