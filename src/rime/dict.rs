@@ -1,5 +1,10 @@
-pub(crate) mod corrector;
-pub(crate) mod db;
+pub mod corrector;
+pub mod db;
+mod db_utils;
 pub(crate) mod dict_settings;
-pub(crate) mod prism;
+mod mapped_file;
+pub mod prism;
+pub mod text_db;
+mod tsv;
+pub mod user_db;
 pub(crate) mod vocabulary;
