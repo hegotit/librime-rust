@@ -4,6 +4,7 @@ mod db_utils;
 pub(crate) mod dict_settings;
 mod mapped_file;
 pub mod prism;
+mod string_table;
 pub mod table;
 pub mod text_db;
 mod tsv;
